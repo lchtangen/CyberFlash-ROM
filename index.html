@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OP7Pro // crDroid Flasher</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              void: '#0A0E27',
+              deep: '#0D1224',
+              cosmic: '#1A1F3A',
+              glass: '#1A1F3A',
+              neon: {
+                cyan: '#00FFFF',
+                magenta: '#FF00FF',
+                lime: '#00FF41',
+                red: '#FF0055',
+                gold: '#FFD700',
+                blue: '#00BFFF',
+                violet: '#B026FF'
+              },
+              text: {
+                primary: '#F0F4FF',
+                secondary: '#A8B5E3',
+                comment: '#6A7BA8'
+              }
+            },
+            fontFamily: {
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            boxShadow: {
+              'neon-cyan': '0 0 20px rgba(0, 255, 255, 0.5)',
+              'neon-magenta': '0 0 20px rgba(255, 0, 255, 0.5)',
+              'glass': '0 8px 32px rgba(0, 0, 0, 0.4)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+              'holographic': 'holographicShift 8s ease infinite',
+            },
+            keyframes: {
+              glow: {
+                '0%': { boxShadow: '0 0 5px rgba(0, 255, 255, 0.2)' },
+                '100%': { boxShadow: '0 0 20px rgba(0, 255, 255, 0.6)' },
+              },
+              holographicShift: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+                '100%': { backgroundPosition: '0% 50%' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background: radial-gradient(circle at 50% 50%, #1A1F3A 0%, #0A0E27 100%);
+        font-family: 'JetBrains Mono', monospace;
+        color: #F0F4FF;
+        overflow: hidden;
+      }
+      
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(0, 255, 255, 0.2); 
+        border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 255, 255, 0.5); 
+      }
+
+      /* PREMIUM GLASS EFFECTS */
+      .glass-floating {
+        background: linear-gradient(
+          135deg,
+          rgba(26, 31, 58, 0.8) 0%,
+          rgba(15, 20, 40, 0.6) 100%
+        );
+        backdrop-filter: blur(40px) saturate(200%);
+        -webkit-backdrop-filter: blur(40px) saturate(200%);
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        border-radius: 24px;
+        box-shadow: 
+          0 8px 32px rgba(0, 0, 0, 0.4),
+          0 0 60px rgba(0, 255, 255, 0.05),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      /* NEON GLOW LAYERS */
+      .neon-intense {
+        box-shadow:
+          0 0 5px #00FFFF,
+          0 0 10px #00FFFF,
+          0 0 20px #00FFFF,
+          0 0 40px #00FFFF,
+          0 0 80px rgba(0, 255, 255, 0.5);
+      }
+
+      /* HOLOGRAPHIC GRADIENT */
+      .holographic {
+        background: linear-gradient(
+          45deg,
+          rgba(0, 255, 255, 0.1) 0%,
+          rgba(255, 0, 255, 0.1) 25%,
+          rgba(0, 255, 65, 0.1) 50%,
+          rgba(255, 0, 255, 0.1) 75%,
+          rgba(0, 255, 255, 0.1) 100%
+        );
+        background-size: 400% 400%;
+        animation: holographicShift 8s ease infinite;
+      }
+      
+      .text-glow {
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "zustand": "https://aistudiocdn.com/zustand@^5.0.9",
+    "three": "https://aistudiocdn.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://aistudiocdn.com/three@0.160.0/examples/jsm/",
+    "three/": "https://aistudiocdn.com/three@^0.181.2/",
+    "@google/genai": "https://esm.run/@google/genai"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
